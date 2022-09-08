@@ -209,7 +209,7 @@ func loadModResources(modPath string, runCtx *parse.RunContext, mod *modconfig.M
 	return mod, err
 }
 
-// search the parent folder for a mod installatio which satisfied the given mod dependency
+// search the parent folder for a mod installation which satisfied the given mod dependency
 func findInstalledDependency(modDependency *modconfig.ModVersionConstraint, parentFolder string) (string, *semver.Version, error) {
 	shortDepName := filepath.Base(modDependency.Name)
 	entries, err := os.ReadDir(parentFolder)

@@ -1,8 +1,9 @@
 import sortBy from "lodash/sortBy";
+import useDeepCompareEffect from "use-deep-compare-effect";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/24/solid";
 import { classNames } from "../../utils/styles";
 import { DashboardActions } from "../../types";
-import { Fragment, useCallback, useEffect, useMemo, useState } from "react";
+import { Fragment, useCallback, useMemo, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { useDashboard } from "../../hooks/useDashboard";
 import { useParams } from "react-router-dom";
@@ -55,16 +56,18 @@ const DashboardTagGroupSelect = () => {
   const [value, setValue] = useState(() => findOption(search.groupBy));
 
   const updateState = useCallback(
-    (option) =>
+    (option) => {
+      console.log("Updating state");
       dispatch({
         type: DashboardActions.SET_DASHBOARD_SEARCH_GROUP_BY,
         value: option.groupBy,
         tag: option.tag,
-      }),
+      });
+    },
     [dispatch]
   );
 
-  useEffect(() => {
+  useDeepCompareEffect(() => {
     setValue(findOption(search.groupBy));
   }, [findOption, search.groupBy]);
 

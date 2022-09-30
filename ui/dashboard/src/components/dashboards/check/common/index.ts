@@ -129,6 +129,7 @@ export type CheckDisplayGroupType =
   | "status";
 
 export interface CheckDisplayGroup {
+  id: string;
   type: CheckDisplayGroupType;
   value?: string;
 }

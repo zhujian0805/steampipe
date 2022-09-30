@@ -25,6 +25,9 @@ const Child = ({
           showControls={showPanelControls}
         />
       );
+    case "benchmark_title":
+      const BenchmarkTitle = getComponent("benchmark_title");
+      return <BenchmarkTitle {...panelDefinition} />;
     case "card":
       const Card = getComponent("card");
       return (

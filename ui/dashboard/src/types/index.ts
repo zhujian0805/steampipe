@@ -244,6 +244,7 @@ export type DashboardLayoutNode = {
 
 export type DashboardPanelType =
   | "benchmark"
+  | "benchmark_title"
   | "benchmark_tree"
   | "card"
   | "chart"

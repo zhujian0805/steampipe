@@ -71,7 +71,7 @@ export interface CheckTags {
   [key: string]: string;
 }
 
-interface CheckResultDimension {
+export interface CheckResultDimension {
   key: string;
   value: string;
 }

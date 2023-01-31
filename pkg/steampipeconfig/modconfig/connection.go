@@ -120,6 +120,14 @@ func (r Range) GetLegacy() hcl.Range {
 	}
 }
 
+func (r Range) AsProto() *sdkproto.Range {
+	return &sdkproto.Range{
+		Filename: r.Filename,
+		Start:    r.Start.AsProto(),
+		End:      r.End.AsProto(),
+	}
+}
+
 func NewRange(sourceRange hcl.Range) Range {
 	return Range{
 		Filename: sourceRange.Filename,
@@ -141,6 +149,14 @@ func (r Pos) GetLegacy() hcl.Pos {
 		Line:   r.Line,
 		Column: r.Column,
 		Byte:   r.Byte,
+	}
+}
+
+func (r Pos) AsProto() *sdkproto.Pos {
+	return &sdkproto.Pos{
+		Line:   int64(r.Line),
+		Column: int64(r.Column),
+		Byte:   int64(r.Byte),
 	}
 }
 

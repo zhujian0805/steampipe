@@ -55,7 +55,8 @@ type Connection struct {
 	Connections map[string]*Connection `json:"-"`
 	// unparsed HCL of plugin specific connection config
 	Config string `json:"config,omitempty"`
-
+	// unparsed HCL of full connection config
+	RawConfig string `json:"raw_config,omitempty"`
 	// // table aggregation specs
 	TableAggregationSpecs TableAggregationSpecs
 

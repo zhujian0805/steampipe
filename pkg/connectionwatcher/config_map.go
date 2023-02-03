@@ -18,6 +18,7 @@ func NewConnectionConfigMap(connectionMap map[string]*modconfig.Connection) Conn
 			ChildConnections:      v.GetResolveConnectionNames(),
 			TableAggregationSpecs: v.TableAggregationSpecs.ToProto(),
 			DeclRange:             v.DeclRange.AsProto(),
+			RawConfig:             v.RawConfig,
 		}
 	}
 
